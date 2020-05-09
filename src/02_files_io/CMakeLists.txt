@@ -3,3 +3,7 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_BIN_DIR}/${MODULE_NAME})
 
 add_executable(copy copy.c)
 add_executable(seekdemo seekdemo.c)
+add_executable(fcopy fcopy.c)
+add_executable(rawio rawio.c)
+add_executable(bufferedio bufferedio.c)
+add_executable(writevdemo writevdemo.c)
