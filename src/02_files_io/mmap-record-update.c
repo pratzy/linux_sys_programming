@@ -24,8 +24,9 @@ void print_records(Record *records, size_t n)
 void read_all_records(int fd)
 {
     size_t file_size = lseek(fd, 0, SEEK_END);
-    Record *records = (Record *)mmap(NULL, file_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
+    Record *records = (Record *)mmap(NULL, file_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     print_records(records, 2);
+    munmap(records, 2);
 }
 
 int main()
@@ -50,9 +51,9 @@ int main()
 
     file_size = lseek(fd, 0, SEEK_END);
 
-    Record *records = (Record *)mmap(NULL, file_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
+    Record *records = (Record *)mmap(NULL, file_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     records[0].id = 99;
-    // strcpy(records[1].name, "John Smith");
+    strcpy(records[1].name, "John Smith");
 
     printf("Printing records BEFORE synching to mmap...\n");
     print_records(records, 2);
@@ -67,6 +68,7 @@ int main()
     printf("Printing records AFTER synching to mmap...\n");
     read_all_records(fd);
 
+    munmap(records, 2);
     close(fd);
     return EXIT_SUCCESS;
 }
