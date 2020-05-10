@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/inotify.h>
+#include <sys/inotify.h> //inotify calls are not available on mac, use fswatch instead
 #include <sys/types.h>
-#include <linux/limits.h>
+#include <limits.h>
 #include <unistd.h>
 
 #define BUFSIZE (100 * (sizeof(struct inotify_event) + NAME_MAX + 1))
