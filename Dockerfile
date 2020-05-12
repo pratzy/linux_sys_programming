@@ -5,7 +5,7 @@ RUN /docker_tzdata.sh
 
 RUN apt-get install -y net-tools build-essential valgrind git cmake autoconf \
     libtool pkg-config rsync openssh-server cppcheck clang-tools clang-tidy clang-format \
-    libboost-all-dev ssh
+    libboost-all-dev ssh iputils-ping
 
 # configure SSH for communication with Visual Studio 
 RUN mkdir -p /var/run/sshd

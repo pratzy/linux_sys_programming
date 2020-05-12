@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  child1:
+    image: ubuntu-vs:init
+    container_name: child1
+    tty: true
+
+  child2:
+    image: ubuntu-vs:init
+    container_name: child2
+    tty: true
+
+networks:
+  myprivate-network: {}
