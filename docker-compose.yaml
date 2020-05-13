@@ -6,11 +6,15 @@ services:
     image: ubuntu-vs:init
     container_name: child1
     tty: true
+    ports:
+      - "12346:22"
 
   child2:
     image: ubuntu-vs:init
     container_name: child2
     tty: true
+    ports:
+     - "12347:22"
 
 networks:
   myprivate-network: {}
