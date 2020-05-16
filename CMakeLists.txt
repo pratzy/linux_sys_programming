@@ -10,6 +10,10 @@ set (OUTPUT_BIN_DIR ${CMAKE_BINARY_DIR}/../bin)
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_BIN_DIR})
 set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_LIB_DIR})
 
-include_directories(include/**)
+include_directories(include)
 
 add_subdirectory(src)
+
+if (BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
