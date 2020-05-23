@@ -3,7 +3,10 @@ FROM ubuntu:focal
 ADD scripts/docker_tzdata.sh /docker_tzdata.sh
 RUN /docker_tzdata.sh
 
-RUN apt-get install -y net-tools build-essential valgrind git cmake autoconf \
+# Unminimize the image so that we can have 'man' etc.
+RUN unmimize
+
+RUN apt-get install -y net-tools build-essential ninja-build valgrind git cmake autoconf \
     libtool pkg-config rsync openssh-server cppcheck clang-tools clang-tidy clang-format \
     libboost-all-dev ssh iputils-ping vim
 
