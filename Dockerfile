@@ -15,9 +15,7 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && \
     ssh-keygen -A
 
-WORKDIR /home/prateek
-
-COPY ~/.ssh/ ~/.ssh/
+WORKDIR /root/home
 
 # expose port 22 and 55555 custom port
 EXPOSE 22 55555
