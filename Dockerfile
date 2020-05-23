@@ -4,7 +4,7 @@ ADD scripts/docker_tzdata.sh /docker_tzdata.sh
 RUN /docker_tzdata.sh
 
 # Unminimize the image so that we can have 'man' etc.
-RUN unmimize
+#RUN unminimize
 
 RUN apt-get install -y net-tools build-essential ninja-build valgrind git cmake autoconf \
     libtool pkg-config rsync openssh-server cppcheck clang-tools clang-tidy clang-format \
@@ -17,8 +17,6 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config && \
     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && \
     ssh-keygen -A
-
-RUN service ssh restart && echo 'Docker' | passwd --stdin root
 
 WORKDIR /root/home
     
