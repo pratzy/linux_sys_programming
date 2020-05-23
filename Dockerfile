@@ -5,7 +5,7 @@ RUN /docker_tzdata.sh
 
 RUN apt-get install -y net-tools build-essential valgrind git cmake autoconf \
     libtool pkg-config rsync openssh-server cppcheck clang-tools clang-tidy clang-format \
-    libboost-all-dev ssh iputils-ping
+    libboost-all-dev ssh iputils-ping vim
 
 # configure SSH for communication with Visual Studio 
 RUN mkdir -p /var/run/sshd
@@ -16,7 +16,7 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     ssh-keygen -A
 
 WORKDIR /root/home
-
+    
 # expose port 22 and 55555 custom port
 EXPOSE 22 55555
 
