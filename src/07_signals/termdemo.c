@@ -20,6 +20,13 @@ int main() {
   } else {
     // Child
     printf("Child PID=%d\n", getpid());
+
+    // Simulate SIGSEGV
+    // *(int *)0 = 99;
+
+    //Pause and send SIGTERM to child PID
+    pause();
+
     sleep(3);
     exit(5);
   }
