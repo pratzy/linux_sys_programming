@@ -15,6 +15,8 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && \
     ssh-keygen -A
 
+RUN service ssh restart && echo 'Docker' | passwd --stdin root
+
 WORKDIR /root/home
     
 # expose port 22 and 55555 custom port

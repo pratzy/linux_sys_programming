@@ -2,19 +2,24 @@ version: '3'
 
 services:
 
-  child1:
-    image: ubuntu-vs:init
-    container_name: child1
+  ubuntu-vs-1:
+    image: ubuntu-vs
+    container_name: ubuntu-vs-1
+    volumes:
+      - ./:/root/home
     tty: true
     ports:
       - "12346:22"
+      - "55555:55555"
 
-  child2:
-    image: ubuntu-vs:init
-    container_name: child2
+
+  ubuntu-vs-2:
+    image: ubuntu-vs
+    container_name: ubuntu-vs-2
+    volumes:
+      - ./:/root/home
     tty: true
     ports:
      - "12347:22"
+     - "55556:55555"
 
-networks:
-  myprivate-network: {}
