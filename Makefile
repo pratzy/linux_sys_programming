@@ -9,10 +9,10 @@ docker-run-2:
 	docker run -v .:/root/home -d -p 12346:22 -p 55556:55555 --security-opt seccomp:unconfined --name ubuntu-vs-2 -it ubuntu-vs /bin/bash
 
 docker-rm-1:
-	docker container stop ubunut-vs-1 && docker container rm ubuntu-vs-1
+	docker container stop ubuntu-vs-1 && docker container rm ubuntu-vs-1
 
 docker-rm-2:
-	docker container stop ubunut-vs-2 && docker container rm ubuntu-vs-2
+	docker container stop ubuntu-vs-2 && docker container rm ubuntu-vs-2
 
 docker-connect:
 	docker exec -it ubuntu-vs /bin/bash
