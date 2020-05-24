@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <string.h>
 
 int main() {
   int status;
@@ -11,12 +11,8 @@ int main() {
   if (fork()) {
     // Parent
     wait(&status);
-    if (WIFEXITED(status))
-      printf("Child exited normally with exit status %d\n",
-             WEXITSTATUS(status));
-    if (WIFSIGNALED(status))
-      printf("Child exited on signal %d: %s\n", WTERMSIG(status),
-             strsignal(WTERMSIG(status)));
+    if (WIFEXITED(status)) printf("Child exited normally with exit status %d\n", WEXITSTATUS(status));
+    if (WIFSIGNALED(status)) printf("Child exited on signal %d: %s\n", WTERMSIG(status), strsignal(WTERMSIG(status)));
   } else {
     // Child
     printf("Child PID=%d\n", getpid());
