@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e -x
 # set noninteractive installation
 export DEBIAN_FRONTEND=noninteractive

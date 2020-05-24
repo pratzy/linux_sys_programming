@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   int c;
   int aflag = 0;
   int bflag = 0;
@@ -13,31 +12,27 @@ int main(int argc, char **argv)
 
   opterr = 0;
 
-  while ((c = getopt(argc, argv, "abn:t:")) != EOF)
-  {
-    switch (c)
-    {
-    case 'a':
-      aflag = 1;
-      break;
-    case 'b':
-      bflag = 1;
-      break;
-    case 'n':
-      numoption = atoi(optarg);
-      break;
-    case 't':
-      strcpy(txtoption, optarg);
-      break;
-    default:
-      fprintf(stderr, "Invalid option: -%c\n", optopt);
+  while ((c = getopt(argc, argv, "abn:t:")) != EOF) {
+    switch (c) {
+      case 'a':
+        aflag = 1;
+        break;
+      case 'b':
+        bflag = 1;
+        break;
+      case 'n':
+        numoption = atoi(optarg);
+        break;
+      case 't':
+        strcpy(txtoption, optarg);
+        break;
+      default:
+        fprintf(stderr, "Invalid option: -%c\n", optopt);
     }
   }
 
-  if (aflag)
-    printf("Option a is set\n");
-  if (bflag)
-    printf("Option b is set\n");
+  if (aflag) printf("Option a is set\n");
+  if (bflag) printf("Option b is set\n");
   printf("Numeric option = %d\n", numoption);
   printf("Text option = %s\n", txtoption);
 
@@ -49,10 +44,7 @@ int main(int argc, char **argv)
   argv += optind;
   argc -= optind;
 
-  while (argc--)
-  {
-    printf("arg: %s\n", *argv++);
-  }
+  while (argc--) { printf("arg: %s\n", *argv++); }
 
   return EXIT_SUCCESS;
 }
