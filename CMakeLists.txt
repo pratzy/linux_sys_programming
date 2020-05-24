@@ -13,6 +13,7 @@ set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_LIB_DIR})
 include_directories(include)
 
 add_subdirectory(src)
+add_subdirectory(src_network)
 
 if (BUILD_TESTS)
     add_subdirectory(tests)

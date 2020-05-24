@@ -12,7 +12,7 @@ void handler(int signum) { printf("Received signal : %d\n", signum); }
 int main() {
   struct sigaction action;
   int n, p[2];
-  char buf[1000];¶
+  char buf[1000];
 
   pipe(p);
 
