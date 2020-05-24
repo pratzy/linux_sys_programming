@@ -6,20 +6,23 @@ services:
     image: ubuntu-vs
     container_name: ubuntu-vs-1
     volumes:
-      - ./:/root/home
+      - ./..:/root/home
     tty: true
     ports:
       - "12346:22"
       - "55555:55555"
+    cap_add:
+        - SYS_PTRACE
 
 
   ubuntu-vs-2:
     image: ubuntu-vs
     container_name: ubuntu-vs-2
     volumes:
-      - ./:/root/home
+      - ./..:/root/home
     tty: true
     ports:
      - "12347:22"
      - "55556:55555"
-
+    cap_add:
+        - SYS_PTRACE
