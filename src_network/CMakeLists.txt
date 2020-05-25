@@ -1,2 +1,4 @@
 add_subdirectory(02_tcp_server)
 add_subdirectory(03_tcp_client)
+add_subdirectory(05_concurrent)
+add_subdirectory(06_multithreading)
