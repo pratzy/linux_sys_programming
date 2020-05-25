@@ -8,7 +8,7 @@
 static int global_var = 0;
 pthread_mutex_t mylock = PTHREAD_MUTEX_INITIALIZER;
 
-void *func(void *arg) {
+void *func(__attribute__((unused)) void *arg) {
   int local_var, i;
 
   for (i = 0; i < 1000000; i++) {
